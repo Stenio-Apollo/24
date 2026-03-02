@@ -3,6 +3,9 @@ import daisyui from "daisyui";
 import themes from "daisyui/src/theming/themes";
 import animate from "tailwindcss-animate";
 
+const daisyThemes = themes as Record<string, Record<string, string>>;
+const corporateTheme = daisyThemes["[data-theme=corporate]"] ?? daisyThemes.corporate ?? {};
+
 export default {
   darkMode: ["class"],
   content: [
@@ -62,7 +65,7 @@ export default {
     themes: [
       {
         corporate: {
-          ...themes["[data-theme=corporate]"],
+          ...corporateTheme,
           primary: "#1145a3",
           secondary: "#0f172a",
           accent: "#10b981",
